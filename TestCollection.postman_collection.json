@@ -1,0 +1,209 @@
+{
+	"info": {
+		"name": "TestCollection",
+		"_postman_id": "41f885c0-72e5-4cf8-964a-4395c38d2eff",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Students",
+			"description": null,
+			"item": [
+				{
+					"name": "Update Student Details (using PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"firstName\": \"NewStu_FirstName\",\n        \"lastName\": \"NewStu_LastName\",\n        \"email\": \"firstname@lastname.org\",\n        \"programme\": \"Computer Science\",\n        \"courses\": [\n            \"Java\",\n            \"SQL\",\n            \"Algorithms\",\n            \"Software Testing\"\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8085/student/101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								"101"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Create Student",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"tests[\"Status code is 201\"] = responseCode.code === 201;"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Cookie",
+								"value": "4653633456756"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"firstName\": \"NewStudent_FirstName\",\n        \"lastName\": \"NewStudent_LastName\",\n        \"email\": \"firstname@lastname.org\",\n        \"programme\": \"Computer Science\",\n        \"courses\": [\n            \"Java\",\n            \"SQL\",\n            \"ADA\",\n            \"SA\"\n        ]\n    }"
+						},
+						"url": {
+							"raw": "http://localhost:8085/student/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								""
+							]
+						},
+						"description": "This request will create a new student"
+					},
+					"response": []
+				},
+				{
+					"name": "Display students",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8085/student/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								"list"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Update student's field (using PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n\n   \"email\":\"newstudent@first.com\"\n   \n}"
+						},
+						"url": {
+							"raw": "http://localhost:8085/student/101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								"101"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Delete student",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8085/student/101",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								"101"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Student methods (using OPTIONS)",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8085/student/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								"100"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Students health monitor (using HEAD)",
+					"request": {
+						"method": "HEAD",
+						"header": [],
+						"body": {},
+						"url": {
+							"raw": "http://localhost:8085/student/100",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"student",
+								"100"
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
